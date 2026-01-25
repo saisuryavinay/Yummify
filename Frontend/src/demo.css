@@ -1,0 +1,83 @@
+/* Container */
+.recipes-container {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Grid Layout */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.food-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Image */
+.food-img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Name + Icon Row */
+.name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.food-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Veg / NonVeg Icon */
+.food-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Price + Quantity */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Quantity Dropdown */
+.qty-select {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}

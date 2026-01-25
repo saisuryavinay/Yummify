@@ -1,0 +1,206 @@
+/* ===== GLOBAL FIX ===== */
+* {
+  margin: 0;
+  padding: 0;
+  
+  box-sizing: border-box;
+}
+/* 
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+} */
+
+/* ================= HERO SECTION ================= */
+.home-hero {
+  width: 100%;
+  
+  height: calc(100vh - 80px); /* navbar height */
+  margin-top: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* BACKGROUND */
+.home-hero::before {
+  overflow: hidden;
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("./Food-imgs/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.45);
+  background-blend-mode: overlay;
+
+  z-index: -1;
+}
+
+/* ================= LEFT IMAGE ================= */
+.hero-images-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-image {
+  position: relative;
+}
+
+.foodie {
+  position: relative;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.food-image img {
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease;
+}
+
+.food-image img:hover {
+  transform: scale(1.05);
+}
+
+/* TAG */
+.tag {
+  position: absolute;
+  bottom: 0px;
+  left: 80%;
+  transform: translateX(-50%);
+  background: #ffb300;
+  color: #000;
+  padding: 12px 30px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+.tag h3 {
+  font-size: 18px;
+}
+.tag p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ================= RIGHT CONTENT ================= */
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.hero-content h1 span {
+  color: #ff3c00;
+}
+
+.hero-content p {
+  font-size: 22px;
+  line-height: 1.5;
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+.hero-content h4 {
+  font-size: 18px;
+  color: #f1c40f;
+  margin-bottom: 25px;
+}
+
+/* ZIP INPUT */
+.zip-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zip-input input {
+  padding: 12px 18px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  width: 220px;
+}
+
+.zip-input button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #ff3c00;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.zip-input button:hover {
+  background: #e23300;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 900px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .home-hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .food-image img {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+}
