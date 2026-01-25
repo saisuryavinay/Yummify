@@ -66,7 +66,7 @@ function Categories() {
           }
 
           grouped[item.title].items.push({
-            img: `https://yummifyy.onrender.com/${item.image}`,
+            img: `https://yummifyy.onrender.com/uploads/${item.image}`,
             name: item.name,
             price: `₹${item.price}`,
             qty: 1,
