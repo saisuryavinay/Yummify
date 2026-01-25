@@ -51,7 +51,7 @@ function Recipes() {
             <img src={item.img} alt={item.title} className="menu-image" />
             <h2 className="menu-item-title">{item.title}</h2>
             <Link
-              to="/categories"
+              to="/Categories"
               state={{ filterType: item.filter }}
               style={{
                 color: "#F0A04B",

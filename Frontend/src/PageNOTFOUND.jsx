@@ -11,7 +11,7 @@ function PageNOTFOUND() {
         {/* <h2>Oops! Page Not Found 😢</h2>
       <p>The page you are looking for doesn’t exist or was moved.</p> */}
       </div>
-      <Link to="/" className="back1">
+      <Link to="/Home" className="back1">
         <svg
           className="back-icon"
           viewBox="0 0 24 24"

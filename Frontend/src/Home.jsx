@@ -34,7 +34,7 @@ export default function Home() {
       alert("Please enter exactly 6 digits!");
       return;
     }
-    navigate("/recipes");
+    navigate("/Recipes");
   };
 
   return (
