@@ -19,7 +19,7 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3000/auth/register", {
+      await axios.post("https://yummifyy.onrender.com/auth/register", {
         username,
         email,
         password,

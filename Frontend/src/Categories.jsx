@@ -40,7 +40,7 @@ function Categories() {
   useEffect(() => {
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/items", {
+    fetch("https://yummifyy.onrender.com/items", {
       headers: {
         Authorization: `Bearer ${token}`, // 🔥 THIS IS THE KEY
       },
