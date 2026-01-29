@@ -53,10 +53,10 @@ function App() {
           <Route
             path="/Contact"
             element={
-              <ProtectedRoute>
+              <>
                 <Navbar />
                 <Contact />
-              </ProtectedRoute>
+                </>
             }
           />
 
