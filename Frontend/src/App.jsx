@@ -18,17 +18,17 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/Signup" element={<Signup />} />
           <Route
-            path="/Home"
+            path="/"
             element={
-              <ProtectedRoute>
+              <>
                 <Navbar />
                 <Home />
-              </ProtectedRoute>
+              </>
             }
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Signup" element={<Signup />} />
 
           <Route
             path="/Categories"
@@ -43,10 +43,10 @@ function App() {
           <Route
             path="/Recipes"
             element={
-              <ProtectedRoute>
+              <>
                 <Navbar />
                 <Recipes />
-              </ProtectedRoute>
+              </>
             }
           />
 

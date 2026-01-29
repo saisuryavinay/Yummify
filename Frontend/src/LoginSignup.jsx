@@ -1,6 +1,6 @@
 // Login.jsx
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
 
@@ -14,21 +14,24 @@ import go from "./Food-imgs/go.png";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/Home";
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://yummifyy.onrender.com/auth/login", {
-        email,
-        password,
-      });
-
+      const res = await axios.post(
+        "https://yummifyy.onrender.com/auth/login",
+        { email, password }
+      );
       localStorage.setItem("token", res.data.token);
 
       alert("Login successful!");
-      navigate("/Home"); 
+      navigate(from, { replace: true });
+
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
     }
@@ -67,6 +70,7 @@ export default function Login() {
             type="email"
             placeholder="Enter your email"
             required
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
@@ -76,6 +80,7 @@ export default function Login() {
             type="password"
             placeholder="Enter your password"
             required
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
@@ -88,7 +93,7 @@ export default function Login() {
 
         <div className="footer-pill">
           Don’t have an account?
-          <Link to={"/Signup"} className="register-link">
+          <Link to="/Signup" className="register-link">
             Register!
           </Link>
         </div>

@@ -36,7 +36,7 @@ function Navbar() {
         <div className="logo">YummiFy</div>
 
         <nav>
-          <NavLink to="/Home" end style={{ fontSize: 18 }}>
+          <NavLink to="/" end style={{ fontSize: 18 }}>
             Home
           </NavLink>
           <NavLink to="/Recipes" style={{ fontSize: 18 }}>
