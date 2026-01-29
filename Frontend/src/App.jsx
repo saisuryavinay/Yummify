@@ -18,11 +18,8 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public routes */}
           <Route path="/" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-
-          {/* Protected routes */}
           <Route
             path="/Home"
             element={
