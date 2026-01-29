@@ -17,7 +17,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from || "/Home";
+  const from = location.state?.from || "/";
 
   const handleLogin = async (e) => {
     e.preventDefault();

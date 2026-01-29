@@ -71,7 +71,7 @@ function Navbar() {
               Logout
             </button>
           ) : (
-            <Link to="/">
+            <Link to="/login">
               <button className="btn-login" style={{ fontSize: 16 }}>
                 Login
               </button>

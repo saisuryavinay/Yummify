@@ -26,7 +26,7 @@ export default function Signup() {
       });
 
       alert("Registered successfully!");
-      navigate("/"); // go to login page
+      navigate("/login"); // go to login page
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
     }
@@ -36,7 +36,7 @@ export default function Signup() {
     <div className="page-bg">
       <div className="signup-card">
         <div className="top-curve">
-          <Link to={"/"} className="loback" style={{ textDecoration: "none" }}>
+          <Link to={"/login"} className="loback" style={{ textDecoration: "none" }}>
             <span className="arrow">
               <svg width="12" height="12" viewBox="0 0 24 24">
                 <path
@@ -107,7 +107,7 @@ export default function Signup() {
 
         <div className="footer-pill">
           Already have an account?
-          <Link to={"/"} className="login-link">
+          <Link to={"/login"} className="login-link">
             Log in!
           </Link>
         </div>
