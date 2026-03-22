@@ -28,12 +28,9 @@ export default function Login() {
         { email, password }
       );
       localStorage.setItem("token", res.data.token);
-
-      alert("Login successful!");
       navigate(from, { replace: true });
-
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      console.log(err.response?.data?.message || "Login failed");
     }
   };
 

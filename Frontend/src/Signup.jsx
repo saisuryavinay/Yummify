@@ -25,10 +25,9 @@ export default function Signup() {
         password,
       });
 
-      alert("Registered successfully!");
       navigate("/login"); // go to login page
     } catch (err) {
-      alert(err.response?.data?.message || "Signup failed");
+      console.log(err.response?.data?.message || "Signup failed");
     }
   };
 

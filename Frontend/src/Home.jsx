@@ -31,7 +31,6 @@ export default function Home() {
 
   const handleGoRecipes = () => {
     if (zipCode.length !== 6) {
-      alert("Please enter exactly 6 digits!");
       return;
     }
     navigate("/Recipes");

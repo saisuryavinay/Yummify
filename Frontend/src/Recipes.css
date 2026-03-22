@@ -23,6 +23,53 @@
   gap: 30px;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-section {
+    padding: 20px 15px;
+    padding-top: 90px;
+  }
+
+  .menu-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .menu-card {
+    padding: 10px;
+  }
+
+  .menu-image {
+    height: 150px;
+  }
+
+  .menu-item-title {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+  }
+
+  .menu-title {
+    font-size: 32px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
+}
+
 .menu-card {
   background-color: #fff;
   border-radius: 16px;
@@ -108,9 +155,117 @@
 
 .items {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   justify-items: center;
+}
+
+/* Mobile Styles for Categories */
+@media (max-width: 768px) {
+  .all-caties {
+    padding-top: 76px;
+    padding: 76px 10px 20px;
+  }
+
+  .categories h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .item-card {
+    width: 150px;
+    padding: 12px;
+  }
+
+  .item-img {
+    width: 100%;
+    height: 100px;
+  }
+
+  .item-card h3 {
+    font-size: 14px;
+  }
+
+  .price-qty-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .qty-dropdown {
+    width: 100%;
+    max-width: 60px;
+  }
+
+  .item-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .icon-row {
+    display: none; /* hide all filter icons on mobile */
+  }
+
+  .icon-box {
+    gap: 3px;
+  }
+
+  .vegicon, .nonvegicon, .Allitems {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-label-veg, .icon-label-non, .icon-label-trt, .icon-label-all {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  .search-bar-wrap {
+    margin: 15px 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Tablet Styles for Categories */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .items {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+  }
+
+  .item-card {
+    width: 160px;
+  }
+
+  .icon-row {
+    margin-left: 600px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  .items {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .icon-row {
+    margin-left: 900px;
+  }
 }
 
 .item-card {
@@ -136,9 +291,9 @@
 }
 
 .search-icon {
-  width: 22px;
-  height: 22px;
-  margin-top: -4px;
+  width: 24px;
+  height: 24px;
+  margin-top: -32px;
   margin-left: -18px;
 }
 
@@ -167,23 +322,20 @@
 
 /* Veg nonn all icons */
 .icon-row{
-  /* position: fixed;
-  top: -10;
-  z-index: 100; */
-  /* background-color: whitesmoke; */
   cursor: pointer;
   display: flex;
-  margin-left: 900px;
   align-items: center;
   gap: 26px;
+  margin-bottom: -50px;
 }
 
 .icon-box{
   display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  left: -100px;
+  gap: 5px;
 }
+
 .vegicon,.nonvegicon, .Allitems {
   width: 34px;
   height: 34px;
@@ -496,6 +648,83 @@
   .info-card {
     flex: 1 1 100%;
   }
+}
+
+/* Mobile Styles for Contact */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 80px 15px 20px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .left-side {
+    min-width: auto;
+  }
+
+  .map-box {
+    height: 250px;
+  }
+
+  .contact-form {
+    padding: 20px 15px;
+  }
+
+  .contact-form h3 {
+    font-size: 18px;
+  }
+
+  .input-row input {
+    width: 100%;
+  }
+
+  .contact-form textarea {
+    width: 100%;
+  }
+
+  .right-side {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .info-card {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .info-card h4 {
+    font-size: 16px;
+  }
+
+  .info-card p {
+    font-size: 14px;
+  }
+}
+
+/* Tablet Styles for Contact */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-container {
+    gap: 30px;
+  }
+
+  .left-side {
+    min-width: 350px;
+  }
+
+  .map-box {
+    height: 350px;
+  }
+
+  .right-side {
+    width: 250px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
 }
 
 .qr{

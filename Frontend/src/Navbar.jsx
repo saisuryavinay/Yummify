@@ -3,11 +3,12 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import cartIcon from "./Food-imgs/cart.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { ToastContainer, toast, Bounce } from "react-toastify";
 import "./index.css";
+import user from './Food-imgs/user.png';
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,37 +16,43 @@ function Navbar() {
     setIsLoggedIn(!!token); // true if token exists
   }, []);
 
-  const notify = () => {
-    toast.warn("Please login first!", {
-      position: "top-right",
-      autoClose: 2000,
-      transition: Bounce,
-    });
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
-    toast.success("Logged out successfully");
     navigate("/");
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+  
   return (
     <>
       <header>
         <div className="logo">YummiFy</div>
+        
+        {/* Hamburger Menu Button */}
+        <div className="hamburger" onClick={toggleMenu}>
+          <span className={isMenuOpen ? 'bar open' : 'bar'}></span>
+          <span className={isMenuOpen ? 'bar open' : 'bar'}></span>
+          <span className={isMenuOpen ? 'bar open' : 'bar'}></span>
+        </div>
 
-        <nav>
-          <NavLink to="/" end style={{ fontSize: 18 }}>
+        <nav className={isMenuOpen ? 'nav-active' : ''}>
+          <NavLink to="/" end style={{ fontSize: 18 }} onClick={closeMenu}>
             Home
           </NavLink>
-          <NavLink to="/Recipes" style={{ fontSize: 18 }}>
+          <NavLink to="/Recipes" style={{ fontSize: 18 }} onClick={closeMenu}>
             Recipes
           </NavLink>
-          <NavLink to="/Categories" style={{ fontSize: 18 }}>
+          <NavLink to="/Categories" style={{ fontSize: 18 }} onClick={closeMenu}>
             Categories
           </NavLink>
-          <NavLink to="/Contact" style={{ fontSize: 18 }}>
+          <NavLink to="/Contact" style={{ fontSize: 18 }} onClick={closeMenu}>
             Contact
           </NavLink>
         </nav>
@@ -53,11 +60,12 @@ function Navbar() {
         <div className="header-right">
           <div className="cart">
             {isLoggedIn ? (
-              <Link to="/Cart">
+              <Link to="/Cart" onClick={closeMenu}>
                 <img src={cartIcon} alt="Cart" />
               </Link>
-            ) : (
-              <img src={cartIcon} alt="Cart" onClick={notify} />
+            ) : 
+            (
+              <img src={cartIcon} alt="Cart" />
             )}
           </div>
 
@@ -70,15 +78,15 @@ function Navbar() {
             >
               Logout
             </button>
-          ) : (
-            <Link to="/login">
+          ) : 
+          (
+            <Link to="/login" onClick={closeMenu}>
               <button className="btn-login" style={{ fontSize: 16 }}>
                 Login
               </button>
             </Link>
           )}
-
-          <ToastContainer />
+            {/* <img src={user} alt="" style={{width:"100px",height:"40px"}}/> */}
         </div>
       </header>
     </>

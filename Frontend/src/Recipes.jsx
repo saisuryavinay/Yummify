@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./Recipes.css";
 
 import breakfast from "./Food-imgs/breakfast.webp";
@@ -17,15 +17,6 @@ import vegThali from "./Food-imgs/thali.jpg";
 import { Link } from "react-router-dom";
 
 function Recipes() {
-  const alertShown = useRef(false);
-
-  useEffect(() => {
-    if (!alertShown.current) {
-      alert("🍴 Order your food now!");
-      alertShown.current = true;
-    }
-  }, []);
-
   const menuItems = [
     { title: "Breakfast", img: breakfast, filter: "breakfast"},
     { title: "Soups", img: Soups, filter: "all" },

@@ -81,3 +81,59 @@
   font-size: 14px;
   cursor: pointer;
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .recipes-container {
+    padding: 15px;
+    margin-top: 10px;
+  }
+
+  .heading {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .food-card {
+    padding: 12px;
+  }
+
+  .food-img {
+    height: 150px;
+  }
+
+  .food-name {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .qty-select {
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .food-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .heading {
+    font-size: 26px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
+}

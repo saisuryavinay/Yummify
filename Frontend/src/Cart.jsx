@@ -1,5 +1,4 @@
 import React from "react";
-import toast, { Toaster } from "react-hot-toast";
 import { useCart } from "./CartContext";
 import { Link } from "react-router-dom";
 import "./index.css";
@@ -15,8 +14,6 @@ function Cart() {
   } = useCart();
 
   function handleToast() {
-    toast.success("Delivery Accepted ✅");
-
     setTimeout(() => {
       clearCart();              // ✅ clear cart
       window.location.reload(); // ✅ refresh page
@@ -51,7 +48,6 @@ function Cart() {
 
   return (
     <div className="cart-layout">
-      <Toaster />
 
       {/* LEFT ITEMS */}
       <div className="cart-left">

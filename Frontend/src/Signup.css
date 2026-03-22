@@ -240,3 +240,105 @@
   .header-text .line2 { font-size: 22px; margin-left: 40px; }
   .loback { top: 12px; left: 12px; padding: 6px 10px; gap:8px; }
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .page-bg {
+    padding: 20px;
+  }
+
+  .signup-card {
+    width: 100%;
+    max-width: 350px;
+    top: 0;
+  }
+
+  .top-curve {
+    height: 150px;
+  }
+
+  .header-text .line1 {
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: -60px;
+  }
+
+  .header-text .line2 {
+    font-size: 22px;
+    margin-left: 60px;
+  }
+
+  .name1 p {
+    font-size: 14px;
+    margin-left: 50px;
+  }
+
+  .hero-wrap {
+    width: 120px;
+    height: 120px;
+    right: 15px;
+    top: 15px;
+  }
+
+  .hero {
+    left: 40px;
+  }
+
+  .redtom {
+    left: -100px;
+    top: 80px;
+  }
+
+  .hero1 {
+    left: -250px;
+    top: 70px;
+  }
+
+  .form-body {
+    padding: 0 20px;
+  }
+
+  .register-btn {
+    width: 90%;
+    margin-left: 15px;
+    height: 45px;
+    font-size: 15px;
+  }
+
+  .footer-pill {
+    margin: 10px 15px;
+    font-size: 12px;
+  }
+
+  .leaf1 {
+    width: 150px;
+    height: 150px;
+    margin-left: 250px;
+    margin-top: -400px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .signup-card {
+    width: 380px;
+  }
+
+  .hero-wrap {
+    width: 140px;
+    height: 140px;
+  }
+
+  .header-text .line1 {
+    font-size: 26px;
+  }
+
+  .header-text .line2 {
+    font-size: 24px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
+}

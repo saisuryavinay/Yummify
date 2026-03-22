@@ -178,7 +178,7 @@ body,
 }
 
 /* ================= MOBILE FIX ================= */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   body {
     overflow-y: auto;
   }
@@ -188,19 +188,74 @@ body,
     text-align: center;
     height: auto;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 80px 20px 40px;
+  }
+
+  .hero-images-section {
+    order: 2;
+    margin-top: 20px;
   }
 
   .food-image img {
-    width: 280px;
-    height: 280px;
+    width: 250px;
+    height: 250px;
   }
 
   .hero-content h1 {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-content h4 {
     font-size: 16px;
   }
+
+  .zip-input {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .zip-input input {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .zip-input button {
+    position: relative;
+    top: -56px;
+    left: 100px;
+    max-width: 250px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-hero {
+    padding: 100px 40px;
+  }
+
+  .food-image img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .zip-input input {
+    width: 200px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already optimized */
 }

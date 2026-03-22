@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   height: 100svh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 .class form{
   display: flex;
@@ -13,4 +15,30 @@
   padding: 20px;
   border-radius: 10px;
   font-size: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .class {
+    padding: 10px;
+  }
+
+  .class form {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .class form {
+    max-width: 450px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
 }

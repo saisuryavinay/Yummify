@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useCart } from "./CartContext";
-import "./Recipes.css";
 import { ToastContainer, toast, Bounce, Slide } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Recipes.css";
 
 import nonvegicon from "./Food-imgs/non-vegIcon.png";
 import vegicon from "./Food-imgs/veg-icon.png";
@@ -33,8 +34,9 @@ function Categories() {
   const [filterType, setFilterType] = useState(
     location.state?.filterType ?? "all"
   );
-  const [showSearch, setShowSearch] = useState(false);
+  const [showSearch, setShowSearch] = useState(window.innerWidth < 768);
   const [searchText, setSearchText] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   /* FETCH ITEMS (JWT PROTECTED) */
   useEffect(() => {
@@ -47,7 +49,6 @@ function Categories() {
     })
       .then((res) => {
         if (res.status === 401) {
-          alert("Session expired. Please login again.");
           localStorage.removeItem("token");
           window.location.href = "/";
         }
@@ -78,30 +79,39 @@ function Categories() {
       .catch((err) => console.log(err));
   }, []);
 
-  /* FILTER TOAST */
   useEffect(() => {
     if (location.state?.filterType) {
-      toast.info("Filter applied", {
-        position: "top-center",
-        autoClose: 600,
-      });
     }
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setShowSearch(mobile);   // mobile always shows search
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const notifyAdd = () => {
-    toast.success("Item added to cart!", {
-      position: "top-center",
-      autoClose: 500,
-      transition: Bounce,
-    });
+    if (!isMobile) {
+      toast.success("Item added to cart!", {
+        position: "top-center",
+        autoClose: 500,
+        transition: Bounce,
+      });
+    }
   };
 
   const notifyFilter = () => {
-    toast.info("Filter applied", {
-      position: "top-right",
-      autoClose: 1200,
-      transition: Slide,
-    });
+    if (!isMobile) {
+      toast.info("Filter applied", {
+        position: "top-right",
+        autoClose: 600,
+        transition: Slide,
+      });
+    }
   };
 
   /* FILTER + SORT */
@@ -132,62 +142,8 @@ function Categories() {
 
   return (
     <div className="all-caties">
-      {!showSearch && (
-        <div className="icon-row">
-          <div
-            className="icon-box"
-            onClick={() => {
-              setFilterType("veg");
-              notifyFilter();
-            }}
-          >
-            <img src={vegicon} className="vegicon" />
-            <p className="icon-label-veg">Veg</p>
-          </div>
-
-          <div
-            className="icon-box"
-            onClick={() => {
-              setFilterType("nonveg");
-              notifyFilter();
-            }}
-          >
-            <img src={nonvegicon} className="nonvegicon" />
-            <p className="icon-label-non">NonVeg</p>
-          </div>
-
-          <div
-            className="icon-box"
-            onClick={() => {
-              setFilterType("Treats");
-              notifyFilter();
-            }}
-          >
-            <img src={Treats} className="nonvegicon" />
-            <p className="icon-label-trt">Treats</p>
-          </div>
-
-          <div
-            className="icon-box"
-            onClick={() => {
-              setFilterType("all");
-              notifyFilter();
-            }}
-          >
-            <img src={Allitems} className="Allitems" />
-            <p className="icon-label-all">Menu</p>
-          </div>
-
-          <div
-            className="icon-box search-box"
-            onClick={() => setShowSearch(true)}
-          >
-            <img src={searchIcon} className="search-icon" />
-          </div>
-        </div>
-      )}
-
-      {showSearch && (
+      <ToastContainer />
+      {isMobile ? (
         <div className="search-bar-wrap">
           <input
             type="text"
@@ -196,15 +152,84 @@ function Categories() {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
-          <img
-            src={closeIcon}
-            className="close-icon"
-            onClick={() => {
-              setShowSearch(false);
-              setSearchText("");
-            }}
-          />
         </div>
+      ) : (
+        <>
+          {!showSearch && !isMobile && (
+            <div className="icon-row">
+              <div
+                className="icon-box"
+                onClick={() => {
+                  setFilterType("veg");
+                  notifyFilter();
+                }}
+              >
+                <img src={vegicon} className="vegicon" />
+                <p className="icon-label-veg"></p>
+              </div>
+
+              <div
+                className="icon-box"
+                onClick={() => {
+                  setFilterType("nonveg");
+                  notifyFilter();
+                }}
+              >
+                <img src={nonvegicon} className="nonvegicon" />
+                <p className="icon-label-non"></p>
+              </div>
+
+              <div
+                className="icon-box"
+                onClick={() => {
+                  setFilterType("Treats");
+                  notifyFilter();
+                }}
+              >
+                <img src={Treats} className="nonvegicon" />
+                <p className="icon-label-trt"></p>
+              </div>
+
+              <div
+                className="icon-box"
+                onClick={() => {
+                  setFilterType("all");
+                  notifyFilter();
+                }}
+              >
+                <img src={Allitems} className="Allitems" />
+                <p className="icon-label-all"></p>
+              </div>
+
+              <div
+                className="icon-box search-box"
+                onClick={() => setShowSearch(true)}
+              >
+                <img src={searchIcon} className="search-icon" />
+              </div>
+            </div>
+          )}
+
+          {showSearch && (
+            <div className="search-bar-wrap">
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search food..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+              <img
+                src={closeIcon}
+                className="close-icon"
+                onClick={() => {
+                  setShowSearch(false);
+                  setSearchText("");
+                }}
+              />
+            </div>
+          )}
+        </>
       )}
 
       {searched.map((cat, index) => (
@@ -261,7 +286,6 @@ function Categories() {
         </div>
       ))}
 
-      <ToastContainer style={{ marginTop: "8vh" }} />
     </div>
   );
 }

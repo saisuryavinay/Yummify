@@ -370,3 +370,82 @@
     top: 8px;
   }
 }
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .page-bg-modal {
+    padding: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .top-curve {
+    height: 150px;
+  }
+
+  .title .line1 {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+
+  .title .line2 {
+    font-size: 20px;
+    margin-left: 60px;
+  }
+
+  .welcome-back {
+    font-size: 18px;
+    margin-left: 50px;
+  }
+
+  .hero-wrap {
+    width: 120px;
+    height: 120px;
+    top: 20px;
+    left: 70%;
+  }
+
+  .form-body {
+    padding: 15px 20px;
+  }
+
+  .login-btn {
+    width: 90%;
+    margin-left: 15px;
+    height: 45px;
+    font-size: 15px;
+  }
+
+  .footer-pill {
+    margin: 10px 15px;
+    font-size: 12px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-card {
+    width: 380px;
+  }
+
+  .hero-wrap {
+    width: 140px;
+    height: 140px;
+  }
+
+  .title .line1 {
+    font-size: 30px;
+  }
+
+  .title .line2 {
+    font-size: 24px;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+  /* Already good */
+}
