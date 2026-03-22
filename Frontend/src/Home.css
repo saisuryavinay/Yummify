@@ -64,6 +64,7 @@ body,
 
 .foodie {
   position: relative;
+  top: -95px;
   animation: fadeIn 1s ease;
 }
 
@@ -305,7 +306,6 @@ body,
     left: 100px;
     max-width: 250px;
   }
-
 /* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
   .home-hero {
