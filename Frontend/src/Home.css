@@ -177,6 +177,46 @@ body,
   background: #e23300;
 }
 
+/* ================= TABLET FIX (makes Home more responsive) ================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-hero {
+    height: auto;
+    min-height: 75vh;
+    flex-direction: row;
+    padding: 50px 30px;
+    gap: 20px;
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-images-section {
+    flex: 1;
+  }
+
+  .food-image img {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero-content h4 {
+    font-size: 17px;
+  }
+
+  .zip-input input {
+    width: 220px;
+  }
+}
+
 /* ================= MOBILE FIX ================= */
 @media (max-width: 768px) {
   body {
@@ -189,6 +229,7 @@ body,
     height: auto;
     min-height: 100vh;
     padding: 80px 20px 40px;
+    gap: 18px;
   }
 
   .hero-images-section {
@@ -197,12 +238,18 @@ body,
   }
 
   .food-image img {
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
+  }
+
+  .tag {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
   }
 
   .hero-content h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .hero-content p {
@@ -210,13 +257,42 @@ body,
   }
 
   .hero-content h4 {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .zip-input {
     flex-direction: column;
     gap: 10px;
   }
+
+  .zip-input input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .home-hero {
+    padding: 60px 80px;
+    height: calc(100vh - 80px);
+  }
+
+  .food-image img {
+    width: 380px;
+    height: 380px;
+  }
+
+  .hero-content h1 {
+    font-size: 52px;
+  }
+
+  .hero-content p {
+    font-size: 22px;
+  }
+
+  .zip-input input {
+    width: 260px;
+  }
+}
 
   .zip-input input {
     width: 100%;
@@ -229,7 +305,6 @@ body,
     left: 100px;
     max-width: 250px;
   }
-}
 
 /* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
