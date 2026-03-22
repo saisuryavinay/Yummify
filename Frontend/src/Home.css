@@ -233,7 +233,7 @@ body,
   }
   .foodie {
   position: relative;
-  top: -95px;
+  top: -100px;
   animation: fadeIn 1s ease;
 }
 
