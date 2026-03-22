@@ -64,7 +64,6 @@ body,
 
 .foodie {
   position: relative;
-  top: -95px;
   animation: fadeIn 1s ease;
 }
 
@@ -232,6 +231,11 @@ body,
     padding: 80px 20px 40px;
     gap: 18px;
   }
+  .foodie {
+  position: relative;
+  top: -95px;
+  animation: fadeIn 1s ease;
+}
 
   .hero-images-section {
     order: 2;
@@ -306,6 +310,8 @@ body,
     left: 100px;
     max-width: 250px;
   }
+
+
 /* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
   .home-hero {
