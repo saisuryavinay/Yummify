@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Recipes.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  (typeof window !== "undefined" && window.location.hostname.includes("localhost")
+    ? "http://localhost:3000"
+    : "https://yummifyy.onrender.com");
+
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");
+
+    try {
+      await axios.post(`${API_URL}/contact`, { name, email, message });
+      setStatus("Message sent successfully.");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
+      setStatus("Failed to send message. Please try again.");
+    }
+  };
+
   return (
     <section className="contact-section">
       <h2 className="contact-title">Our Contact Information</h2>
@@ -27,18 +55,36 @@ export default function Contact() {
             </div>
           </div>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <h3>Send Us a Message</h3>
             <div className="input-row">
-              <input type="text" placeholder="Name" required />
-              <input type="email" placeholder="Email" required />
+              <input
+                type="text"
+                placeholder="Name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <textarea placeholder="Message" rows="5" required></textarea>
+            <textarea
+              placeholder="Message"
+              rows="5"
+              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
             <button type="submit">Send Message</button>
+            {status && <p className="contact-status">{status}</p>}
           </form>
         </div>
       </div>
-     
     </section>
   );
 }

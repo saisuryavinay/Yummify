@@ -6,6 +6,7 @@ import foodRoutes from "./routes/foodRoutes.js";
 import menuRoutes from './routes/menuRoutes.js';
 import productRoutes from "./routes/productRoute.js"; 
 import authRoutes from './routes/authRoutes.js'
+import contactRoutes from './routes/contactRoutes.js';
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use("/auth", authRoutes);
 app.use("/items", foodRoutes);
 app.use("/items", productRoutes);
 app.use('/item',menuRoutes)
+app.use("/contact", contactRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} ☠️`);

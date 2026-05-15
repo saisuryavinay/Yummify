@@ -32,7 +32,7 @@ function Categories() {
 
   const [allCategories, setAllCategories] = useState([]);
   const [filterType, setFilterType] = useState(
-    location.state?.filterType ?? "all"
+    location.state?.filterType ?? "all",
   );
   const [showSearch, setShowSearch] = useState(window.innerWidth < 768);
   const [searchText, setSearchText] = useState("");
@@ -65,9 +65,13 @@ function Categories() {
               items: [],
             };
           }
+          const baseURL =
+            window.location.hostname === "localhost"
+              ? "http://localhost:3000"
+              : "https://yummifyy.onrender.com";
 
           grouped[item.title].items.push({
-            img: `https://yummifyy.onrender.com/uploads/${item.image}`,
+            img: `${baseURL}/uploads/${item.image}`,
             name: item.name,
             price: `₹${item.price}`,
             qty: 1,
@@ -88,10 +92,10 @@ function Categories() {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      setShowSearch(mobile);   // mobile always shows search
+      setShowSearch(mobile); // mobile always shows search
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const notifyAdd = () => {
@@ -135,7 +139,7 @@ function Categories() {
     .map((cat) => ({
       ...cat,
       items: cat.items.filter((item) =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
+        item.name.toLowerCase().includes(searchText.toLowerCase()),
       ),
     }))
     .filter((cat) => cat.items.length > 0);
@@ -257,9 +261,7 @@ function Categories() {
                   <select
                     className="qty-dropdown"
                     defaultValue={1}
-                    onChange={(e) =>
-                      (item.qty = Number(e.target.value))
-                    }
+                    onChange={(e) => (item.qty = Number(e.target.value))}
                   >
                     {[...Array(10)].map((_, n) => (
                       <option key={n} value={n + 1}>
@@ -285,7 +287,6 @@ function Categories() {
           </div>
         </div>
       ))}
-
     </div>
   );
 }

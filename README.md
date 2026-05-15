@@ -193,14 +193,6 @@ npm start
 cd Frontend
 npm run dev
 # Application runs on http://localhost:5173
-```
-
-### Terminal 4: Admin Panel
-```bash
-cd Adminpage/Frontend
-npm run dev
-# Admin panel runs on http://localhost:5174
-```
 
 ## 🔌 API Endpoints
 
