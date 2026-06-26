@@ -1,4 +1,4 @@
-# 🍽️ DriveReady - Food Ordering & Management System
+# 🍽️ YUMMIFY - Food Ordering & Management System
 
 A full-stack food ordering and restaurant management application built with the MERN stack (MongoDB, Express.js, React, Node.js). This project features a customer-facing interface for browsing menus, ordering food, and managing carts, along with an admin panel for managing food items and menus.
 
