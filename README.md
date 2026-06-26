@@ -131,8 +131,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd React-begin
+git clone https://github.com/saisuryavinay/yummify.git
+cd yummify
 ```
 
 ### 2. Install Backend Dependencies
